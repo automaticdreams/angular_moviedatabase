@@ -1,0 +1,13 @@
+<label for="filter">Filter by Vote rating</label>
+<input type="text" [(ngModel)]="searchText" placeholder="Enter a number" id="filter" />
+<ul *ngIf="movies">
+	<li *ngFor="let movie of movies | filter : searchText : 'vote_count'">
+		<img [src]="config?.images?.base_url + config?.images?.logo_sizes[3] + movie?.poster_path" alt="">
+		<p>
+			<span class="title">{{movie.title}}</span>
+			<span>Popularity: {{movie.popularity}}</span>
+			<span>Vote rating: {{movie.vote_count}}</span>
+		</p>
+	</li>
+</ul>
+
